@@ -42,12 +42,13 @@ mtcnn = MTCNN(
     device=DEVICE
 ).to(DEVICE).eval()
 
-# Classifier model
+# Classifier model - pretrained=None avoids downloading vggface2 weights (107MB)
+# since we immediately load our own checkpoint anyway
 model = InceptionResnetV1(
-    pretrained="vggface2",
+    pretrained=None,
     classify=True,
     num_classes=1,
-    device=DEVICE
+    device=DEVICE,
 )
 
 if os.path.exists(CHECKPOINT_PATH):

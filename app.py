@@ -25,7 +25,7 @@ mtcnn = MTCNN(
 ).to(DEVICE).eval()
 
 model = InceptionResnetV1(
-    pretrained="vggface2",
+    pretrained=None,
     classify=True,
     num_classes=1,
     device=DEVICE,
